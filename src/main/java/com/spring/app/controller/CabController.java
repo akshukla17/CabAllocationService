@@ -15,14 +15,14 @@ import com.spring.app.sevice.CabService;
 
 @RestController
 public class CabController {
-	
+
 	@Autowired
 	private CabService cabService;
-	
-	@RequestMapping(value="/cas/cabs",method=RequestMethod.POST)
-	public ResponseEntity<?> addCab(@RequestBody List<Cab> listOfCab){
-		for(int i=0;i<listOfCab.size();i++) {
-			Cab c=listOfCab.get(i);
+
+	@RequestMapping(value = "/cas/cabs", method = RequestMethod.POST)
+	public ResponseEntity<?> addCab(@RequestBody List<Cab> listOfCab) {
+		for (int i = 0; i < listOfCab.size(); i++) {
+			Cab c = listOfCab.get(i);
 			cabService.addCab(c);
 		}
 		return new ResponseEntity<>(HttpStatus.CREATED);
